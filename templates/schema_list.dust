@@ -1,4 +1,4 @@
-{?protocols}
+<!--{?protocols}
     <h2>Protocols</h2>
     <ul class="protocols">
         {#protocols}
@@ -21,7 +21,7 @@
             </li>
         {/protocols}
     </ul>
-{/protocols}
+{/protocols} -->
 
 <h2>Types</h2>
 <ul class="types">
