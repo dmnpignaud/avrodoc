@@ -23,8 +23,9 @@ var router  = express.Router();
 var app = express();
 
 app.set('port', process.env.PORT || 8124);
-app.use(require('less-middleware')({ src: __dirname + '/public' }));
-app.use(express.static(path.join(__dirname, 'public')));
+
+router.use(require('less-middleware')({ src: __dirname + '/public' }));
+router.use(express.static(path.join(__dirname, 'public')));
 
 
 router.get('/', function (req, res) {
