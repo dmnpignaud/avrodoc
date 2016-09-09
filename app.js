@@ -27,6 +27,12 @@ app.set('port', process.env.PORT || 8124);
 router.use(require('less-middleware')({ src: __dirname + '/public' }));
 router.use(express.static(path.join(__dirname, 'public')));
 
+router.get('/svg', function (req, res) {
+    fs.readFile('./deps.svg', function(err, data) {
+      res.writeHead(200, {'content-type':'image/svg+xml'});
+      res.end(data);
+    });
+});
 
 router.get('/', function (req, res) {
     content.topLevelHTML({schemata: schemata}, function (err, html) {
