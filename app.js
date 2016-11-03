@@ -12,7 +12,7 @@ var schemata = [];
 glob('**/*.avsc', {cwd: schema_dir}, function (err, files) {
     if (err) throw err;
     files.sort().forEach(function (file) {
-        schemata.push({filename: '/schemata/' + file});
+        schemata.push({filename: '/documentation/schemata/' + file});
     });
 });
 
@@ -44,7 +44,7 @@ router.get('/dust-templates.js', function (req, res) {
     res.set('Content-Type', 'text/javascript').send(dust_templates);
 });
 
-app.get(/^\/schemata\/(\w[\w.\-]*(?:\/\w[\w.\-]*)*)$/, function (req, res) {
+router.get(/^\/schemata\/(\w[\w.\-]*(?:\/\w[\w.\-]*)*)$/, function (req, res) {
     fs.readFile(path.join(schema_dir, req.params[0]), 'utf-8', function (err, data) {
         if (err) {
             res.status(404).send('Not found');
